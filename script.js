@@ -9,8 +9,8 @@ const caseDetails = {
         status: "SOLVED & DEPLOYED",
         image: "images/tj.jpeg",
         problem: "Juice ordering and transaction tracking in the campus cafeteria were still handled manually. This caused long queues during peak hours, frequent order-recording errors, and made it difficult for sellers to monitor fruit inventory and cash flow in real-time.",
-        solution: "Built a full-stack e-commerce web application powered by Node.js, Express, and MongoDB. The system provides a dedicated dashboard for buyers and sellers, digitizing transactions, enabling CRUD product management, and ensuring smoother, more organized order monitoring.",
-        techStack: ["React", "Next.js", "MongoDB", "Cloudinary"],
+        solution: "Built a full-stack e-commerce web application powered by Node.js, React, Next.js and MongoDB. The system provides a dedicated dashboard for buyers and sellers, digitizing transactions, enabling CRUD product management, and ensuring smoother, more organized order monitoring.",
+        techStack: ["React", "Next.js", "Node.js", "MongoDB", "Cloudinary"],
         demoUrl: "https://example.com",
         githubUrl: "https://github.com/Nataash03/terminal-juice.git"
     },
@@ -20,7 +20,7 @@ const caseDetails = {
         status: "SOLVED & DEPLOYED",
         image: "images/nusantara.jpeg",
         problem: "Information regarding Javanese cultural heritage was scattered across various platforms without structured curation. The lack of interactive and accessible digital media left the younger generation less familiar with these traditional values, risking their preservation over time.",
-        solution: "Designed an interactive web-based educational platform (HTML, CSS, and JavaScript) serving as a central hub for Javanese culture. The website integrates cultural resources with a clean, user-friendly interface to support inclusive cultural preservation.",
+        solution: "Designed an interactive web-based educational platform (HTML5, CSS3, and JavaScript) serving as a central hub for Javanese culture. The website integrates cultural resources with a clean, user-friendly interface to support inclusive cultural preservation.",
         techStack: ["HTML5", "CSS3", "Javascript"],
         demoUrl: "https://example.com",
         githubUrl: "https://github.com/Nataash03/kelompok-12.git"

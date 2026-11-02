@@ -221,7 +221,7 @@
                     <i data-lucide="folder-kanban" class="w-6 h-6 text-amber-400"></i>
                     <div>
                         <h2 class="font-typewriter text-xl font-bold text-stone-100">EXHIBIT A: CASE FILES (PORTFOLIO PROJECTS)</h2>
-                        <p class="text-xs font-mono text-stone-400">Click any Manila Folder or Evidence File to inspect technical breakdown & live demos.</p>
+                        <p class="text-xs font-mono text-stone-400">Click any Manila Folder to inspect technical breakdown & live demos.</p>
                     </div>
                 </div>
 
@@ -229,7 +229,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Case File 01 -->
-                    <div id="node-case-1" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-red-600 relative rotate-[-1deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                    <div id="node-case-1" onclick="openCaseModal('case1')" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-red-600 relative rotate-[-1deg] hover:rotate-0 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between group cursor-pointer">
                         <div class="pushpin pushpin-red -top-2 left-6"></div>
                         
                         <div>
@@ -240,7 +240,7 @@
 
                             <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
                                 <img src="images/tj.jpeg" 
-                                     alt="E-Commerce Analytics" 
+                                     alt="Terminal Juice" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                      onerror="this.src='images/tj.jpeg'">
                                 <div class="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors"></div>
@@ -248,28 +248,28 @@
 
                             <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Terminal Juice</h3>
                             <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
-                                High-throughput real-time monitoring system designed for tracking server metrics, network anomalies, and transaction fraud in real-time.
+                                Juice ordering and transaction tracking in the campus cafeteria were still handled manually, leading to long queues and inefficient inventory monitoring.
                             </p>
 
                             <!-- Tech Badges -->
                             <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
                                 <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">React</span>
                                 <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Next.js</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Node.js</span>
                                 <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">MongoDB</span>
-                                
                             </div>
                         </div>
 
                         <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
-                            <button onclick="openCaseModal('case1')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-red-700 flex items-center gap-1">
+                            <span class="text-xs font-typewriter font-bold text-stone-900 group-hover:text-red-700 flex items-center gap-1">
                                 <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
-                            </button>
+                            </span>
                             <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E01</span>
                         </div>
                     </div>
 
                     <!-- Case File 02 -->
-                    <div id="node-case-2" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-blue-600 relative rotate-[1.5deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                    <div id="node-case-2" onclick="openCaseModal('case2')" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-blue-600 relative rotate-[1.5deg] hover:rotate-0 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between group cursor-pointer">
                         <div class="pushpin pushpin-blue -top-2 right-6"></div>
                         
                         <div>
@@ -280,34 +280,34 @@
 
                             <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
                                 <img src="images/nusantara.jpeg" 
-                                     alt="Cipher Messaging Platform" 
+                                     alt="Nusantara Web" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                      onerror="this.src='images/nusantara.jpeg'">
                             </div>
 
                             <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Nusantara Web</h3>
                             <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
-                                End-to-end encrypted team collaboration platform built with WebSocket protocols, dynamic key generation, and zero-knowledge storage.
+                                Information regarding Javanese cultural heritage was scattered without structured curation, making it harder for the younger generation to explore.
                             </p>
 
                             <!-- Tech Badges -->
                             <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">HTML</span>
-                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">CSS</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">HTML5</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">CSS3</span>
                                 <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Javascript</span>
                             </div>
                         </div>
 
                         <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
-                            <button onclick="openCaseModal('case2')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-blue-800 flex items-center gap-1">
+                            <span class="text-xs font-typewriter font-bold text-stone-900 group-hover:text-blue-800 flex items-center gap-1">
                                 <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
-                            </button>
+                            </span>
                             <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E02</span>
                         </div>
                     </div>
 
                     <!-- Case File 03 -->
-                    <div id="node-case-3" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-amber-600 relative rotate-[-2deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                    <div id="node-case-3" onclick="openCaseModal('case3')" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-amber-600 relative rotate-[-2deg] hover:rotate-0 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between group cursor-pointer">
                         <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
                         
                         <div>
@@ -318,14 +318,14 @@
 
                             <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
                                 <img src="images/cch.jpeg" 
-                                     alt="Pixel Game Arcade Engine" 
+                                     alt="Central Creative Hub" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                      onerror="this.src='images/cch.jpeg'">
                             </div>
 
                             <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Central Creative Hub</h3>
                             <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
-                                Canvas-based retro arcade game engine featuring custom physics, sound synth generator (Tone.js), and global leaderboard REST API.
+                                FSRD students faced physical exhibition limitations and complex coordination overheads without a centralized digital showcase platform.
                             </p>
 
                             <!-- Tech Badges -->
@@ -337,9 +337,9 @@
                         </div>
 
                         <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
-                            <button onclick="openCaseModal('case3')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-amber-900 flex items-center gap-1">
+                            <span class="text-xs font-typewriter font-bold text-stone-900 group-hover:text-amber-900 flex items-center gap-1">
                                 <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
-                            </button>
+                            </span>
                             <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E03</span>
                         </div>
                     </div>
@@ -374,7 +374,7 @@
                         <div class="pushpin pushpin-blue -top-2 left-1/2 -translate-x-1/2"></div>
                         <div class="text-[10px] text-stone-600 font-bold">TAG #FRAMEWORK</div>
                         <div class="font-typewriter font-bold text-base mt-1">REACT</div>
-                        <div class="text-[11px] text-stone-700 mt-2">Hooks, Context, Redux Toolkit</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Component State, Hooks, UI Logic</div>
                     </div>
 
                     <!-- Tech Item 3 -->
@@ -382,7 +382,7 @@
                         <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
                         <div class="text-[10px] text-stone-600 font-bold">TAG #BACKEND</div>
                         <div class="font-typewriter font-bold text-base mt-1">NODE.JS</div>
-                        <div class="text-[11px] text-stone-700 mt-2">Express, REST APIs</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Express.js, RESTful Routing</div>
                     </div>
 
                     <!-- Tech Item 4 -->
@@ -406,7 +406,7 @@
                         <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
                         <div class="text-[10px] text-stone-600 font-bold">TAG #STYLING</div>
                         <div class="font-typewriter font-bold text-base mt-1">TAILWIND</div>
-                        <div class="text-[11px] text-stone-700 mt-2">Responsive UI, Animation</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Responsive UI, Animation, Layouts</div>
                     </div>
 
                 </div>
