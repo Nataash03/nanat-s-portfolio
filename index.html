@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Developer Portfolio | Case Files & Evidence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cork: '#2a1f1b',
+                        manila: '#f4e8c1',
+                        'manila-dark': '#dcc898',
+                        polaroid: '#faf8f5',
+                        'detective-red': '#cc2929',
+                        'detective-blue': '#00d2ff',
+                        'neon-blue': '#09b6a2',
+                        'dark-desk': '#121318'
+                    },
+                    fontFamily: {
+                        typewriter: ['"Special Elite"', '"Courier Prime"', 'monospace'],
+                        mono: ['"Courier Prime"', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'pin': '2px 4px 10px rgba(0, 0, 0, 0.5)',
+                        'folder': '0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3)',
+                        'polaroid': '0 12px 20px -3px rgba(0, 0, 0, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-desk text-slate-100 font-sans min-h-screen selection:bg-red-900 selection:text-white relative overflow-x-hidden transition-colors duration-500">
+
+    <!-- Top Desk Spotlight Glow -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-500/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Header Navigation Tabs -->
+    <header class="sticky top-0 z-40 bg-stone-900/90 backdrop-blur-md border-b border-stone-800 px-4 py-3 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            
+            <!-- Branding -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-red-950 border border-red-700 flex items-center justify-center text-red-500 shadow-inner">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-typewriter text-lg font-bold tracking-wider text-amber-200">WANTED: PORTFOLIO</span>
+                        <span class="text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/80 font-mono font-bold">STATUS: READY</span>
+                    </div>
+                    <p class="text-xs text-stone-400 font-mono">INVESTIGATOR / WEB DEV PORTFOLIO</p>
+                </div>
+            </div>
+
+            <!-- Navigation Notes Tabs -->
+            <nav class="flex items-center gap-2 overflow-x-auto py-1 text-sm font-typewriter">
+                <a href="#hero-dossier" class="px-3 py-1.5 bg-manila text-stone-900 font-bold rounded-t shadow hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border-b-2 border-amber-700">
+                    <i data-lucide="user" class="w-4 h-4"></i> [SUSPECT]
+                </a>
+                <a href="#case-files" class="px-3 py-1.5 bg-manila text-stone-900 font-bold rounded-t shadow hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border-b-2 border-amber-700">
+                    <i data-lucide="folder-open" class="w-4 h-4"></i> [CASES]
+                </a>
+                <a href="#evidence-locker" class="px-3 py-1.5 bg-manila text-stone-900 font-bold rounded-t shadow hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border-b-2 border-amber-700">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> [EVIDENCE]
+                </a>
+                <a href="#contact-agency" class="px-3 py-1.5 bg-amber-400 text-stone-900 font-bold rounded-t shadow hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border-b-2 border-amber-600">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i> [REPORT]
+                </a>
+            </nav>
+
+            <!-- Vision Mode Toggle & HR Fast Track -->
+            <div class="flex items-center gap-2">
+                <button id="uv-toggle-btn" onclick="toggleUvMode()" class="px-3 py-1.5 bg-stone-800 hover:bg-stone-700 border border-stone-600 rounded text-xs font-mono flex items-center gap-2 text-cyan-400 transition-all shadow">
+                    <i data-lucide="eye" class="w-4 h-4"></i>
+                    <span id="uv-toggle-text" class="hidden sm:inline">UV NEON VISION</span>
+                </button>
+                <a href="#contact-agency" class="px-3 py-1.5 bg-red-700 hover:bg-red-600 text-white font-mono text-xs font-bold rounded flex items-center gap-1.5 shadow-lg shadow-red-900/30">
+                    <i data-lucide="file-badge" class="w-4 h-4"></i> RECRUITER DOSSIER
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Crime Board Container -->
+    <main class="relative max-w-7xl mx-auto px-4 py-8 z-10">
+        
+        <!-- Canvas overlay for Red Strings -->
+        <canvas id="string-canvas" class="absolute inset-0 pointer-events-none z-20 w-full h-full"></canvas>
+
+        <!-- Board Surface wrapper with cork texture -->
+        <div id="crime-board" class="cork-board rounded-2xl p-6 sm:p-10 border-8 border-stone-800 shadow-2xl relative min-h-[1400px] transition-colors duration-500">
+            
+            <!-- Corkboard Vignette & Frame Effect -->
+            <div class="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_80px_rgba(0,0,0,0.8)]"></div>
+
+            <!-- Board Header / Case Title Tape -->
+            <div class="relative z-30 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-stone-700/60 pb-6">
+                <div class="relative bg-amber-100 text-stone-900 px-6 py-3 rounded-sm shadow-md rotate-[-1deg] border border-amber-300 max-w-xl">
+                    <div class="pushpin pushpin-red -top-2 left-4"></div>
+                    <div class="pushpin pushpin-red -top-2 right-4"></div>
+                    <span class="text-xs font-mono text-stone-600 tracking-widest uppercase block">CONFIDENTIAL INVESTIGATION BOARD</span>
+                    <h1 class="text-2xl sm:text-3xl font-typewriter font-bold tracking-tight text-stone-900">
+                        TARGET: <span class="text-red-700 underline decoration-red-500 decoration-wavy">DEVELOPER</span>
+                    </h1>
+                    <p class="text-xs font-mono mt-1 text-stone-700">PRIMARY MISSION: DEPLOY SCALABLE CODE & SOLVE SYSTEM MYSTERIES</p>
+                </div>
+
+                <!-- Classified Stamp Widget -->
+                <div class="bg-stone-900/80 backdrop-blur border border-stone-700 p-3 rounded-lg flex items-center gap-4 font-mono text-xs shadow-lg">
+                    <div class="stamp-confidential px-2 py-1 text-xs font-bold uppercase">
+                        CLASSIFIED
+                    </div>
+                    <div>
+                        <div class="text-stone-400">CLEARANCE LEVEL: <span class="text-amber-400 font-bold">SEMESTER 5</span></div>
+                        <div class="text-stone-400">AVAILABILITY: <span class="text-emerald-400 font-bold">IMMEDIATE</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 1: HERO / SUSPECT DOSSIER -->
+            <section id="hero-dossier" class="relative z-30 mb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Suspect Polaroid Photo Card -->
+                <div id="node-suspect" class="lg:col-span-4 bg-polaroid p-4 rounded shadow-polaroid rotate-[-2deg] hover:rotate-0 transition-transform duration-300 relative group border border-stone-300 text-stone-900">
+                    <div class="pushpin pushpin-red -top-2 left-1/2 -translate-x-1/2"></div>
+                    
+                    <div class="relative aspect-square bg-stone-900 rounded overflow-hidden mb-3 border border-stone-400 group-hover:brightness-105 transition-all">
+                        <img src="images/picture1.jpeg" 
+                             alt="Candidate Profile" 
+                             class="w-full h-full object-cover filter contrast-125 grayscale hover:grayscale-0 transition-all duration-500"
+                             onerror="this.src='https://placehold.co/400x400/1e293b/00d2ff?text=DEV+DOSSIER'">
+                        <div class="absolute bottom-2 left-2 bg-stone-950/80 backdrop-blur px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400 border border-cyan-800">
+                            SUBJECT_ID #2026-DEV
+                        </div>
+                    </div>
+
+                    <div class="font-typewriter text-center border-t border-stone-300 pt-3">
+                        <h2 class="text-xl font-bold text-stone-900 tracking-wide">NATASYA AGUSTINE "S"</h2>
+                        <p class="text-xs text-red-700 font-bold tracking-widest mt-0.5 uppercase">[ WEB DEV INVESTIGATOR ]</p>
+                        <div class="mt-2 text-xs font-mono text-stone-600 flex justify-center gap-2">
+                            <span>AGE: 21</span> • <span>LOC: JAKARTA, ID</span>
+                        </div>
+                    </div>
+
+                    <div class="tape absolute -top-3 -right-4 w-20 h-6 rotate-12"></div>
+                </div>
+
+                <!-- Manila Dossier File Details -->
+                <div class="lg:col-span-8 bg-manila text-stone-900 p-6 sm:p-8 rounded-md shadow-folder border-l-8 border-amber-700 relative rotate-[1deg]">
+                    <div class="pushpin pushpin-blue -top-2 right-10"></div>
+                    
+                    <!-- Dossier Header Tab -->
+                    <div class="absolute -top-7 left-6 bg-manila-dark text-stone-800 font-typewriter font-bold text-xs px-4 py-1 rounded-t-md border-t border-x border-amber-700 uppercase">
+                        DOSSIER FILE: CANDIDATE_PROFILE.PDF
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-amber-900/20 pb-3 mb-4">
+                        <span class="font-typewriter text-xs text-amber-900 font-bold uppercase tracking-wider">INVESTIGATION SUMMARY</span>
+                        <span class="font-mono text-xs bg-amber-200/80 px-2.5 py-0.5 rounded text-amber-900 border border-amber-400">CONFIDENTIAL REPORT</span>
+                    </div>
+
+                    <h3 class="font-typewriter text-2xl font-bold mb-3 text-stone-900">
+                        "EVIDENCE SUGGESTS HIGH CAPABILITY IN MODERN WEB ARCHITECTURE"
+                    </h3>
+
+                    <p class="font-sans text-stone-800 leading-relaxed mb-4 text-sm sm:text-base">
+                        Computer Science student specializing in building responsive full-stack web applications and interactive user interfaces. 
+                        Known for solving complex bugs, optimizing database queries, and executing pixel-perfect designs under tight sprint deadlines.
+                    </p>
+
+                    <!-- Key Evidence Attributes -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-4 font-mono text-xs">
+                        <div class="bg-amber-100/80 p-2.5 rounded border border-amber-300">
+                            <span class="text-stone-500 block text-[10px]">PRIMARY WEAPON</span>
+                            <span class="font-bold text-stone-900">React / Next.js</span>
+                        </div>
+                        <div class="bg-amber-100/80 p-2.5 rounded border border-amber-300">
+                            <span class="text-stone-500 block text-[10px]">BACKEND ARSENAL</span>
+                            <span class="font-bold text-stone-900">Node.js / Express / MongoDB</span>
+                        </div>
+                        <div class="bg-amber-100/80 p-2.5 rounded border border-amber-300 col-span-2 sm:col-span-1">
+                            <span class="text-stone-500 block text-[10px]">CAREER TARGET</span>
+                            <span class="font-bold text-emerald-800">Web Developer</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to action buttons inside Dossier -->
+                    <div class="flex flex-wrap items-center gap-3 mt-6 pt-4 border-t border-amber-900/20">
+                        <button onclick="downloadResume()" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
+                            <i data-lucide="download" class="w-4 h-4"></i> DOWNLOAD FULL CV (PDF)
+                        </button>
+                        <a href="#case-files" class="px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-amber-200 font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
+                            <i data-lucide="folder-search" class="w-4 h-4"></i> EXAMINE CASE FILES (ALL PROJECTS)
+                        </a>
+                    </div>
+
+                    <div class="tape absolute -bottom-3 -left-4 w-24 h-6 -rotate-6"></div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: CASE FILES (PROJECTS) -->
+            <section id="case-files" class="relative z-30 mb-20">
+                
+                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit">
+                    <i data-lucide="folder-kanban" class="w-6 h-6 text-amber-400"></i>
+                    <div>
+                        <h2 class="font-typewriter text-xl font-bold text-stone-100">EXHIBIT A: CASE FILES (PORTFOLIO PROJECTS)</h2>
+                        <p class="text-xs font-mono text-stone-400">Click any Manila Folder or Evidence File to inspect technical breakdown & live demos.</p>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Case File 01 -->
+                    <div id="node-case-1" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-red-600 relative rotate-[-1deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                        <div class="pushpin pushpin-red -top-2 left-6"></div>
+                        
+                        <div>
+                            <div class="flex justify-between items-start mb-3 border-b border-stone-400/60 pb-2">
+                                <span class="font-typewriter font-bold text-xs text-red-700">CASE FILE #001</span>
+                                <span class="stamp-solved text-[10px] px-2 py-0.5 uppercase font-bold">SOLVED</span>
+                            </div>
+
+                            <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
+                                <img src="images/tj.jpeg" 
+                                     alt="E-Commerce Analytics" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='images/tj.jpeg'">
+                                <div class="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors"></div>
+                            </div>
+
+                            <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Terminal Juice</h3>
+                            <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
+                                High-throughput real-time monitoring system designed for tracking server metrics, network anomalies, and transaction fraud in real-time.
+                            </p>
+
+                            <!-- Tech Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">React</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Next.js</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">MongoDB</span>
+                                
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
+                            <button onclick="openCaseModal('case1')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-red-700 flex items-center gap-1">
+                                <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
+                            </button>
+                            <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E01</span>
+                        </div>
+                    </div>
+
+                    <!-- Case File 02 -->
+                    <div id="node-case-2" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-blue-600 relative rotate-[1.5deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                        <div class="pushpin pushpin-blue -top-2 right-6"></div>
+                        
+                        <div>
+                            <div class="flex justify-between items-start mb-3 border-b border-stone-400/60 pb-2">
+                                <span class="font-typewriter font-bold text-xs text-blue-800">CASE FILE #002</span>
+                                <span class="stamp-solved text-[10px] px-2 py-0.5 uppercase font-bold">SOLVED</span>
+                            </div>
+
+                            <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
+                                <img src="images/nusantara.jpeg" 
+                                     alt="Cipher Messaging Platform" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='images/nusantara.jpeg'">
+                            </div>
+
+                            <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Nusantara Web</h3>
+                            <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
+                                End-to-end encrypted team collaboration platform built with WebSocket protocols, dynamic key generation, and zero-knowledge storage.
+                            </p>
+
+                            <!-- Tech Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">HTML</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">CSS</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Javascript</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
+                            <button onclick="openCaseModal('case2')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-blue-800 flex items-center gap-1">
+                                <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
+                            </button>
+                            <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E02</span>
+                        </div>
+                    </div>
+
+                    <!-- Case File 03 -->
+                    <div id="node-case-3" class="bg-manila text-stone-900 rounded-md p-5 shadow-folder border-t-4 border-amber-600 relative rotate-[-2deg] hover:rotate-0 transition-all duration-300 flex flex-col justify-between group">
+                        <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
+                        
+                        <div>
+                            <div class="flex justify-between items-start mb-3 border-b border-stone-400/60 pb-2">
+                                <span class="font-typewriter font-bold text-xs text-amber-900">CASE FILE #003</span>
+                                <span class="stamp-solved text-[10px] px-2 py-0.5 uppercase font-bold">SOLVED</span>
+                            </div>
+
+                            <div class="relative aspect-video rounded overflow-hidden mb-3 border border-stone-400 bg-stone-900">
+                                <img src="images/cch.jpeg" 
+                                     alt="Pixel Game Arcade Engine" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='images/cch.jpeg'">
+                            </div>
+
+                            <h3 class="font-typewriter font-bold text-lg mb-1 text-stone-900">Central Creative Hub</h3>
+                            <p class="text-xs font-sans text-stone-700 mb-4 line-clamp-3">
+                                Canvas-based retro arcade game engine featuring custom physics, sound synth generator (Tone.js), and global leaderboard REST API.
+                            </p>
+
+                            <!-- Tech Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">React</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">Node.js</span>
+                                <span class="bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400 text-stone-900">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-stone-400/60 flex items-center justify-between">
+                            <button onclick="openCaseModal('case3')" class="text-xs font-typewriter font-bold text-stone-900 hover:text-amber-900 flex items-center gap-1">
+                                <i data-lucide="file-search" class="w-4 h-4"></i> OPEN DOSSIER
+                            </button>
+                            <span class="text-[10px] font-mono text-stone-500">EVIDENCE #E03</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 3: EVIDENCE LOCKER (TECH STACK & SKILLS) -->
+            <section id="evidence-locker" class="relative z-30 mb-16">
+                
+                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-cyan-400"></i>
+                    <div>
+                        <h2 class="font-typewriter text-xl font-bold text-stone-100">EXHIBIT B: EVIDENCE LOCKER (TECH ARSENAL)</h2>
+                        <p class="text-xs font-mono text-stone-400">Tagged evidence items connected by investigative string lines.</p>
+                    </div>
+                </div>
+
+                <!-- Sticky Notes Evidence Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono">
+                    
+                    <!-- Tech Item 1 -->
+                    <div id="node-tech-react" class="bg-yellow-200 text-stone-900 p-4 rounded-sm shadow-md rotate-[-2deg] border border-yellow-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-red -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #FRONTEND</div>
+                        <div class="font-typewriter font-bold text-base mt-1">NEXT.JS</div>
+                        <div class="text-[11px] text-stone-700 mt-2">App Router, SSR, Server Actions</div>
+                    </div>
+
+                    <!-- Tech Item 2 -->
+                    <div id="node-tech-next" class="bg-cyan-100 text-stone-900 p-4 rounded-sm shadow-md rotate-[3deg] border border-cyan-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-blue -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #FRAMEWORK</div>
+                        <div class="font-typewriter font-bold text-base mt-1">REACT</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Hooks, Context, Redux Toolkit</div>
+                    </div>
+
+                    <!-- Tech Item 3 -->
+                    <div id="node-tech-node" class="bg-emerald-200 text-stone-900 p-4 rounded-sm shadow-md rotate-[-1deg] border border-emerald-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #BACKEND</div>
+                        <div class="font-typewriter font-bold text-base mt-1">NODE.JS</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Express, REST APIs</div>
+                    </div>
+
+                    <!-- Tech Item 4 -->
+                    <div id="node-tech-ts" class="bg-blue-200 text-stone-900 p-4 rounded-sm shadow-md rotate-[2deg] border border-blue-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-blue -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #LANG</div>
+                        <div class="font-typewriter font-bold text-base mt-1">TYPESCRIPT</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Strict Typing, Interfaces</div>
+                    </div>
+
+                    <!-- Tech Item 5 -->
+                    <div id="node-tech-db" class="bg-orange-200 text-stone-900 p-4 rounded-sm shadow-md rotate-[-3deg] border border-orange-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-red -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #DATABASE</div>
+                        <div class="font-typewriter font-bold text-base mt-1">MONGODB</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Prisma ORM, Query Optimization</div>
+                    </div>
+
+                    <!-- Tech Item 6 -->
+                    <div id="node-tech-tail" class="bg-pink-200 text-stone-900 p-4 rounded-sm shadow-md rotate-[1deg] border border-pink-300 hover:scale-105 transition-transform relative">
+                        <div class="pushpin pushpin-yellow -top-2 left-1/2 -translate-x-1/2"></div>
+                        <div class="text-[10px] text-stone-600 font-bold">TAG #STYLING</div>
+                        <div class="font-typewriter font-bold text-base mt-1">TAILWIND</div>
+                        <div class="text-[11px] text-stone-700 mt-2">Responsive UI, Animation</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 4: CONTACT / REPORT INCIDENT -->
+            <section id="contact-agency" class="relative z-30">
+                <div class="bg-stone-900 text-stone-100 p-6 sm:p-10 rounded-xl border border-stone-700 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                        <i data-lucide="file-text" class="w-64 h-64 text-white"></i>
+                    </div>
+
+                    <div class="max-w-3xl relative z-10">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-red-950 text-red-400 border border-red-800 rounded text-xs font-mono mb-4">
+                            <i data-lucide="radio" class="w-3.5 h-3.5 animate-pulse"></i> HIGH PRIORITY COMMUNIQUE
+                        </div>
+
+                        <h2 class="font-typewriter text-2xl sm:text-3xl font-bold mb-2">
+                            TRANSMIT AN INTERNSHIP OFFER OR INQUIRY
+                        </h2>
+                        <p class="text-sm text-stone-400 font-mono mb-6">
+                            Looking to recruit this investigator for your engineering team? Send a direct dispatch below.
+                        </p>
+
+                        <form id="crime-report-form" onsubmit="handleContactSubmit(event)" class="space-y-4 font-mono text-sm">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-stone-400 mb-1">RECRUITER / AGENCY NAME *</label>
+                                    <input type="text" required placeholder="e.g. TechCorp HR Team" 
+                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-stone-400 mb-1">CONTACT EMAIL *</label>
+                                    <input type="email" required placeholder="hr@company.com" 
+                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs text-stone-400 mb-1">CASE DETAILS / INTERNSHIP ROLE DESCRIPTION *</label>
+                                <textarea rows="4" required placeholder="Describe position, timeline, or interview invite details..." 
+                                          class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans"></textarea>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                                <div class="flex items-center gap-4 text-xs text-stone-400">
+                                    <a href="https://github.com" target="_blank" class="hover:text-cyan-400 flex items-center gap-1">
+                                        <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" class="hover:text-cyan-400 flex items-center gap-1">
+                                        <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+                                    </a>
+                                </div>
+
+                                <button type="submit" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-stone-950 font-bold font-typewriter rounded shadow-lg flex items-center gap-2 transition-transform active:scale-95">
+                                    <i data-lucide="send" class="w-4 h-4"></i> TRANSMIT DISPATCH
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Feedback Message Area -->
+                        <div id="contact-feedback" class="hidden mt-4 p-3 bg-emerald-950 border border-emerald-700 text-emerald-300 text-xs font-mono rounded"></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Case Detail Modal -->
+    <div id="case-modal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-manila text-stone-900 max-w-2xl w-full rounded-md shadow-2xl border-2 border-stone-800 p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            
+            <button onclick="closeCaseModal()" class="absolute top-4 right-4 bg-stone-900 text-stone-200 hover:bg-red-700 p-1.5 rounded-full transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div id="modal-content">
+                <!-- Modal content inserted dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
