@@ -106,10 +106,8 @@ function toggleUvMode() {
     drawRedStrings(); // Redraw strings with dynamic UV color
 }
 
-// Contact Form Handling (dikirim ke email lewat Web3Forms)
-// ====== KONFIGURASI: tempel Access Key dari web3forms.com di sini ======
+// Contact Form Handling 
 const WEB3FORMS_ACCESS_KEY = 'ec5e2ba5-ac2f-4f23-95c9-7b19da9e6c7d';
-// ======================================================================
 
 async function handleContactSubmit(e) {
     e.preventDefault();
@@ -130,7 +128,6 @@ async function handleContactSubmit(e) {
         feedback.querySelector('span').textContent = text;
         lucide.createIcons();
 
-        // Sembunyikan otomatis setelah 5 detik (dengan fade out)
         clearTimeout(feedback._hideTimer);
         feedback.style.transition = 'opacity 0.3s ease';
         feedback.style.opacity = '1';
@@ -181,12 +178,14 @@ async function handleContactSubmit(e) {
     }
 }
 
-// Resume download simulation
+// Resume download
 function downloadResume() {
-    const tempAnchor = document.createElement('a');
-    tempAnchor.href = '#';
-    tempAnchor.onclick = () => alert("Downloading Developer Resume Dossier (PDF)...");
-    tempAnchor.click();
+    const link = document.createElement('a');
+    link.href = 'cv/CV Natasya.pdf';   
+    link.download = 'CV Natasya.pdf';  
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 // Canvas Red Strings Connection System
