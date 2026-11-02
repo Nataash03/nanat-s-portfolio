@@ -106,19 +106,79 @@ function toggleUvMode() {
     drawRedStrings(); // Redraw strings with dynamic UV color
 }
 
-// Contact Form Handling
-function handleContactSubmit(e) {
+// Contact Form Handling (dikirim ke email lewat Web3Forms)
+// ====== KONFIGURASI: tempel Access Key dari web3forms.com di sini ======
+const WEB3FORMS_ACCESS_KEY = 'ec5e2ba5-ac2f-4f23-95c9-7b19da9e6c7d';
+// ======================================================================
+
+async function handleContactSubmit(e) {
     e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
     const feedback = document.getElementById('contact-feedback');
-    feedback.classList.remove('hidden');
-    feedback.innerHTML = `
-        <div class="flex items-center gap-2">
-            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
-            <span>DISPATCH TRANSMITTED SUCCESSFULLY. INVESTIGATOR WILL RESPOND WITHIN 24 HOURS.</span>
-        </div>
-    `;
-    lucide.createIcons();
-    e.target.reset();
+
+    const showFeedback = (ok, text) => {
+        feedback.className = 'mt-4 p-3 text-xs font-mono rounded border ' +
+            (ok ? 'bg-emerald-950 border-emerald-700 text-emerald-300'
+                : 'bg-red-950 border-red-800 text-red-300');
+        feedback.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i data-lucide="${ok ? 'check-circle' : 'alert-triangle'}" class="w-4 h-4 shrink-0"></i>
+                <span></span>
+            </div>
+        `;
+        feedback.querySelector('span').textContent = text;
+        lucide.createIcons();
+
+        // Sembunyikan otomatis setelah 5 detik (dengan fade out)
+        clearTimeout(feedback._hideTimer);
+        feedback.style.transition = 'opacity 0.3s ease';
+        feedback.style.opacity = '1';
+        feedback._hideTimer = setTimeout(() => {
+            feedback.style.opacity = '0';
+            setTimeout(() => feedback.classList.add('hidden'), 300);
+        }, 5000);
+    };
+
+    if (WEB3FORMS_ACCESS_KEY.startsWith('GANTI_')) {
+        showFeedback(false, 'ACCESS KEY BELUM DIATUR. ISI WEB3FORMS_ACCESS_KEY DI script.js.');
+        return;
+    }
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    payload.access_key = WEB3FORMS_ACCESS_KEY;
+    payload.subject = 'Portfolio Dispatch: ' + (payload.name || 'New message');
+    payload.from_name = 'Portfolio Contact Form';
+
+    const originalHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.classList.add('opacity-60', 'cursor-not-allowed');
+    btn.textContent = 'TRANSMITTING...';
+
+    try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const json = await res.json().catch(() => ({}));
+        console.log('Web3Forms response:', res.status, json);
+
+        if (res.ok && json.success) {
+            showFeedback(true, 'DISPATCH TRANSMITTED SUCCESSFULLY. INVESTIGATOR WILL RESPOND WITHIN 24 HOURS.');
+            form.reset();
+        } else {
+            showFeedback(false, 'TRANSMISSION FAILED: ' + (json.message || ('HTTP ' + res.status)));
+        }
+    } catch (err) {
+        console.error(err);
+        showFeedback(false, 'TRANSMISSION FAILED: ' + err.message + ' (cek Console/Network di DevTools)');
+    } finally {
+        btn.disabled = false;
+        btn.classList.remove('opacity-60', 'cursor-not-allowed');
+        btn.innerHTML = originalHTML;
+        lucide.createIcons();
+    }
 }
 
 // Resume download simulation

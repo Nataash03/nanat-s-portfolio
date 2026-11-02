@@ -432,22 +432,23 @@
                         </p>
 
                         <form id="crime-report-form" onsubmit="handleContactSubmit(event)" class="space-y-4 font-mono text-sm">
+                            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs text-stone-400 mb-1">RECRUITER / AGENCY NAME *</label>
-                                    <input type="text" required placeholder="e.g. TechCorp HR Team" 
+                                    <input type="text" name="name" required placeholder="e.g. TechCorp HR Team" 
                                            class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
                                 </div>
                                 <div>
                                     <label class="block text-xs text-stone-400 mb-1">CONTACT EMAIL *</label>
-                                    <input type="email" required placeholder="hr@company.com" 
+                                    <input type="email" name="email" required placeholder="hr@company.com" 
                                            class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs text-stone-400 mb-1">CASE DETAILS / INTERNSHIP ROLE DESCRIPTION *</label>
-                                <textarea rows="4" required placeholder="Describe position, timeline, or interview invite details..." 
+                                <textarea rows="4" name="message" required placeholder="Describe position, timeline, or interview invite details..." 
                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans"></textarea>
                             </div>
 
