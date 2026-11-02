@@ -92,6 +92,16 @@ function closeCaseModal() {
     document.getElementById('case-modal').classList.add('hidden');
 }
 
+    // Tutup popup saat area gelap di luar popup diklik/di-tap
+    document.getElementById('case-modal').addEventListener('click', function (e) {
+        if (e.target === this) closeCaseModal();
+        });
+    
+        // Tutup popup dengan tombol Esc
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeCaseModal();
+    });
+
 // Toggle UV Neon Vision Mode
 function toggleUvMode() {
     const body = document.body;
