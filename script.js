@@ -42,7 +42,7 @@ function openCaseModal(caseKey) {
 
     const modalContent = document.getElementById('modal-content');
     modalContent.innerHTML = `
-        <div class="flex items-center justify-between border-b border-stone-400/80 pb-3 mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 pr-10 border-b border-stone-400/80 pb-3 mb-4">
             <span class="font-typewriter font-bold text-xs text-red-700 tracking-wider">${data.caseNo}</span>
             <span class="stamp-solved text-xs px-2 py-0.5 uppercase font-bold">${data.status}</span>
         </div>
@@ -72,9 +72,6 @@ function openCaseModal(caseKey) {
         </div>
 
         <div class="flex flex-wrap gap-3 pt-4 border-t border-stone-400/80">
-            <a href="${data.demoUrl}" target="_blank" class="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-amber-200 font-typewriter text-xs font-bold rounded flex items-center gap-2">
-                <i data-lucide="external-link" class="w-4 h-4"></i> INSPECT LIVE DEMO
-            </a>
             <a href="${data.githubUrl}" target="_blank" class="px-4 py-2 bg-red-700 hover:bg-red-800 text-white font-typewriter text-xs font-bold rounded flex items-center gap-2">
                 <i data-lucide="github" class="w-4 h-4"></i> SOURCE CODE (GITHUB)
             </a>
@@ -89,15 +86,15 @@ function closeCaseModal() {
     document.getElementById('case-modal').classList.add('hidden');
 }
 
-    // Tutup popup saat area gelap di luar popup diklik/di-tap
-    document.getElementById('case-modal').addEventListener('click', function (e) {
-        if (e.target === this) closeCaseModal();
-        });
-    
-        // Tutup popup dengan tombol Esc
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeCaseModal();
-    });
+// Tutup popup saat area gelap di luar popup diklik/di-tap
+document.getElementById('case-modal').addEventListener('click', function (e) {
+    if (e.target === this) closeCaseModal();
+});
+
+// Tutup popup dengan tombol Esc
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeCaseModal();
+});
 
 // Toggle UV Neon Vision Mode
 function toggleUvMode() {

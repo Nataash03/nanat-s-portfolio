@@ -51,25 +51,25 @@
     <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-500/5 blur-[120px] pointer-events-none z-0"></div>
 
     <!-- Header Navigation Tabs -->
-    <header class="sticky top-0 z-40 bg-stone-900/90 backdrop-blur-md border-b border-stone-800 px-4 py-3 shadow-2xl">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+    <header class="relative md:sticky top-0 z-40 bg-stone-900/90 backdrop-blur-md border-b border-stone-800 px-4 py-3 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 md:gap-4">
             
             <!-- Branding -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 order-1">
                 <div class="w-10 h-10 rounded bg-red-950 border border-red-700 flex items-center justify-center text-red-500 shadow-inner">
                     <i data-lucide="shield-alert" class="w-6 h-6"></i>
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="font-typewriter text-lg font-bold tracking-wider text-amber-200">WANTED: PORTFOLIO</span>
-                        <span class="text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/80 font-mono font-bold">STATUS: READY</span>
+                        <span class="font-typewriter text-base sm:text-lg font-bold tracking-wider text-amber-200">WANTED: PORTFOLIO</span>
+                        <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/80 font-mono font-bold">STATUS: READY</span>
                     </div>
-                    <p class="text-xs text-stone-400 font-mono">INVESTIGATOR / WEB DEV PORTFOLIO</p>
+                    <p class="text-[10px] sm:text-xs text-stone-400 font-mono">INVESTIGATOR / WEB DEV PORTFOLIO</p>
                 </div>
             </div>
 
             <!-- Navigation Notes Tabs -->
-            <nav class="flex items-center gap-2 overflow-x-auto py-1 text-sm font-typewriter">
+            <nav class="order-3 w-full md:w-auto md:order-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap py-1 text-sm font-typewriter">
                 <a href="#hero-dossier" class="px-3 py-1.5 bg-manila text-stone-900 font-bold rounded-t shadow hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border-b-2 border-amber-700">
                     <i data-lucide="user" class="w-4 h-4"></i> [SUSPECT]
                 </a>
@@ -85,13 +85,13 @@
             </nav>
 
             <!-- Vision Mode Toggle & HR Fast Track -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 order-2 md:order-3">
                 <button id="uv-toggle-btn" onclick="toggleUvMode()" class="px-3 py-1.5 bg-stone-800 hover:bg-stone-700 border border-stone-600 rounded text-xs font-mono flex items-center gap-2 text-cyan-400 transition-all shadow">
                     <i data-lucide="eye" class="w-4 h-4"></i>
                     <span id="uv-toggle-text" class="hidden sm:inline">UV NEON VISION</span>
                 </button>
                 <a href="#contact-agency" class="px-3 py-1.5 bg-red-700 hover:bg-red-600 text-white font-mono text-xs font-bold rounded flex items-center gap-1.5 shadow-lg shadow-red-900/30">
-                    <i data-lucide="file-badge" class="w-4 h-4"></i> RECRUITER DOSSIER
+                    <i data-lucide="file-badge" class="w-4 h-4"></i> <span class="hidden sm:inline">RECRUITER DOSSIER</span>
                 </a>
             </div>
         </div>
@@ -101,17 +101,17 @@
     <main class="relative max-w-7xl mx-auto px-4 py-8 z-10">
         
         <!-- Canvas overlay for Red Strings -->
-        <canvas id="string-canvas" class="absolute inset-0 pointer-events-none z-20 w-full h-full"></canvas>
+        <canvas id="string-canvas" class="hidden lg:block absolute inset-0 pointer-events-none z-20 w-full h-full"></canvas>
 
         <!-- Board Surface wrapper with cork texture -->
-        <div id="crime-board" class="cork-board rounded-2xl p-6 sm:p-10 border-8 border-stone-800 shadow-2xl relative min-h-[1400px] transition-colors duration-500">
+        <div id="crime-board" class="cork-board rounded-2xl p-4 sm:p-10 border-4 sm:border-8 border-stone-800 shadow-2xl relative lg:min-h-[1400px] transition-colors duration-500">
             
             <!-- Corkboard Vignette & Frame Effect -->
             <div class="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_80px_rgba(0,0,0,0.8)]"></div>
 
             <!-- Board Header / Case Title Tape -->
             <div class="relative z-30 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-stone-700/60 pb-6">
-                <div class="relative bg-amber-100 text-stone-900 px-6 py-3 rounded-sm shadow-md rotate-[-1deg] border border-amber-300 max-w-xl">
+                <div class="relative bg-amber-100 text-stone-900 px-4 sm:px-6 py-3 rounded-sm shadow-md rotate-[-1deg] border border-amber-300 max-w-xl">
                     <div class="pushpin pushpin-red -top-2 left-4"></div>
                     <div class="pushpin pushpin-red -top-2 right-4"></div>
                     <span class="text-xs font-mono text-stone-600 tracking-widest uppercase block">CONFIDENTIAL INVESTIGATION BOARD</span>
@@ -122,7 +122,7 @@
                 </div>
 
                 <!-- Classified Stamp Widget -->
-                <div class="bg-stone-900/80 backdrop-blur border border-stone-700 p-3 rounded-lg flex items-center gap-4 font-mono text-xs shadow-lg">
+                <div class="bg-stone-900/80 backdrop-blur border border-stone-700 p-3 rounded-lg flex items-center gap-4 font-mono text-xs shadow-lg w-full md:w-auto">
                     <div class="stamp-confidential px-2 py-1 text-xs font-bold uppercase">
                         CLASSIFIED
                     </div>
@@ -166,7 +166,7 @@
                     <div class="pushpin pushpin-blue -top-2 right-10"></div>
                     
                     <!-- Dossier Header Tab -->
-                    <div class="absolute -top-7 left-6 bg-manila-dark text-stone-800 font-typewriter font-bold text-xs px-4 py-1 rounded-t-md border-t border-x border-amber-700 uppercase">
+                    <div class="absolute -top-7 left-6 bg-manila-dark text-stone-800 font-typewriter font-bold text-[10px] sm:text-xs px-3 sm:px-4 py-1 rounded-t-md border-t border-x border-amber-700 uppercase max-w-[calc(100%-3rem)] truncate">
                         DOSSIER FILE: CANDIDATE_PROFILE.PDF
                     </div>
 
@@ -175,7 +175,7 @@
                         <span class="font-mono text-xs bg-amber-200/80 px-2.5 py-0.5 rounded text-amber-900 border border-amber-400">CONFIDENTIAL REPORT</span>
                     </div>
 
-                    <h3 class="font-typewriter text-2xl font-bold mb-3 text-stone-900">
+                    <h3 class="font-typewriter text-xl sm:text-2xl font-bold mb-3 text-stone-900">
                         "EVIDENCE SUGGESTS HIGH CAPABILITY IN MODERN WEB ARCHITECTURE"
                     </h3>
 
@@ -202,10 +202,10 @@
 
                     <!-- Call to action buttons inside Dossier -->
                     <div class="flex flex-wrap items-center gap-3 mt-6 pt-4 border-t border-amber-900/20">
-                        <button onclick="downloadResume()" class="px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
+                        <button onclick="downloadResume()" class="w-full sm:w-auto justify-center text-center px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
                             <i data-lucide="download" class="w-4 h-4"></i> DOWNLOAD FULL CV (PDF)
                         </button>
-                        <a href="#case-files" class="px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-amber-200 font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
+                        <a href="#case-files" class="w-full sm:w-auto justify-center text-center px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-amber-200 font-mono font-bold text-xs rounded shadow-md flex items-center gap-2 transition-transform active:scale-95">
                             <i data-lucide="folder-search" class="w-4 h-4"></i> EXAMINE CASE FILES (ALL PROJECTS)
                         </a>
                     </div>
@@ -217,11 +217,11 @@
             <!-- SECTION 2: CASE FILES (PROJECTS) -->
             <section id="case-files" class="relative z-30 mb-20">
                 
-                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit">
-                    <i data-lucide="folder-kanban" class="w-6 h-6 text-amber-400"></i>
+                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit max-w-full">
+                    <i data-lucide="folder-kanban" class="w-6 h-6 shrink-0 text-amber-400"></i>
                     <div>
-                        <h2 class="font-typewriter text-xl font-bold text-stone-100">EXHIBIT A: CASE FILES (PORTFOLIO PROJECTS)</h2>
-                        <p class="text-xs font-mono text-stone-400">Click any Manila Folder to inspect technical breakdown & live demos.</p>
+                        <h2 class="font-typewriter text-base sm:text-xl font-bold text-stone-100">EXHIBIT A: CASE FILES (PORTFOLIO PROJECTS)</h2>
+                        <p class="text-xs font-mono text-stone-400">Tap any Manila Folder to inspect technical breakdown & source code.</p>
                     </div>
                 </div>
 
@@ -350,10 +350,10 @@
             <!-- SECTION 3: EVIDENCE LOCKER (TECH STACK & SKILLS) -->
             <section id="evidence-locker" class="relative z-30 mb-16">
                 
-                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit">
-                    <i data-lucide="briefcase" class="w-6 h-6 text-cyan-400"></i>
+                <div class="flex items-center gap-3 mb-8 bg-stone-900/80 p-4 rounded-lg border border-stone-700 backdrop-blur w-fit max-w-full">
+                    <i data-lucide="briefcase" class="w-6 h-6 shrink-0 text-cyan-400"></i>
                     <div>
-                        <h2 class="font-typewriter text-xl font-bold text-stone-100">EXHIBIT B: EVIDENCE LOCKER (TECH ARSENAL)</h2>
+                        <h2 class="font-typewriter text-base sm:text-xl font-bold text-stone-100">EXHIBIT B: EVIDENCE LOCKER (TECH ARSENAL)</h2>
                         <p class="text-xs font-mono text-stone-400">Tagged evidence items connected by investigative string lines.</p>
                     </div>
                 </div>
@@ -424,7 +424,7 @@
                             <i data-lucide="radio" class="w-3.5 h-3.5 animate-pulse"></i> HIGH PRIORITY COMMUNIQUE
                         </div>
 
-                        <h2 class="font-typewriter text-2xl sm:text-3xl font-bold mb-2">
+                        <h2 class="font-typewriter text-xl sm:text-3xl font-bold mb-2">
                             TRANSMIT AN INTERNSHIP OFFER OR INQUIRY
                         </h2>
                         <p class="text-sm text-stone-400 font-mono mb-6">
@@ -437,19 +437,19 @@
                                 <div>
                                     <label class="block text-xs text-stone-400 mb-1">RECRUITER / AGENCY NAME *</label>
                                     <input type="text" name="name" required placeholder="e.g. TechCorp HR Team" 
-                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
+                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans text-base sm:text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-xs text-stone-400 mb-1">CONTACT EMAIL *</label>
                                     <input type="email" name="email" required placeholder="hr@company.com" 
-                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans">
+                                           class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans text-base sm:text-sm">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs text-stone-400 mb-1">CASE DETAILS / INTERNSHIP ROLE DESCRIPTION *</label>
                                 <textarea rows="4" name="message" required placeholder="Describe position, timeline, or interview invite details..." 
-                                          class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans"></textarea>
+                                          class="w-full bg-stone-950 border border-stone-700 rounded p-2.5 text-stone-100 focus:outline-none focus:border-cyan-500 font-sans text-base sm:text-sm"></textarea>
                             </div>
 
                             <div class="flex flex-wrap items-center gap-3">
@@ -466,7 +466,7 @@
                                     </svg>
                                     <span>LinkedIn Network</span>
                                 </a>
-                            <button type="submit" class="shrink-0 px-6 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-stone-950 font-bold font-typewriter rounded-md shadow-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
+                            <button type="submit" class="shrink-0 w-full sm:w-auto px-6 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-stone-950 font-bold font-typewriter rounded-md shadow-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
                                 <i data-lucide="send" class="w-4 h-4"></i> TRANSMIT DISPATCH
                             </button>
                             </div>
